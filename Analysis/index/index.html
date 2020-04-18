@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>数据分析</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/angular.js/1.7.0/angular.min.js"></script>
+    <script src="https://cdn.staticfile.org/angular.js/1.7.0/angular-route.min.js"></script>
+</head>
+
+
+<body ng-app="app">
+    <header>
+        <nav class="navbar navbar-default" role="navigation">
+            <home></home>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">商家管理页面</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <!-- 表示选中 -->
+                        <li><a href="#!/computers">个人信息</a></li>
+                        <li><a href="#!/">商品信息</a></li>
+                        <li class="dropdown">
+                            <a href="#!/printers" class="dropdown-toggle" data-toggle="dropdown">
+                                数据分析
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">  
+                                <li><a href="#">用户评测</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">销售分析</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div ng-view>
+    </div>
+    <footer class="footer">
+    </footer>
+    <script>
+        
+        var app =angular.module('app',['ngRoute'])
+        app.component('home',{
+            templateUrl:"../home/home.html"
+        })
+
+        app.config(['$routeProvider', function($routeProvider){
+            $routeProvider
+            .when('/',{templateUrl:"../home/home.html"})
+            .when('/computers',{template:'这是电脑分类页面'})
+            .when('/printers',{template:'这是打印机页面'})
+            .otherwise({redirectTo:'/'});
+        }]);
+    </script>
+
+</body>
+
+</html>

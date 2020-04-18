@@ -1,0 +1,36 @@
+.mainContainer{
+    width:100%;
+    height: 100%;
+    width:250px;
+    display: flex;
+    
+    /* left:50%;
+    top:50%;
+    transform: translate(-50%,-50%); */
+    font-display: column;
+    align-items: content;
+}
+.mainContainer .headerContainer{
+    display: flex;
+    flex-direction:row;
+    width:100%;
+    height:15%;
+    border-bottom: 1px solid gray;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+
+
+}
+
+.mainContainer .headerContainer text{
+    height: 100%;
+    width: 250px;
+    /* margin-left:50 px; */
+    writing-mode:horizontal-tb;
+    border-right:0.5px solid gray;
+}
+html{
+    width: 100%;
+    height: 100%;
+}

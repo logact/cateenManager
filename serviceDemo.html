@@ -1,0 +1,51 @@
+<!DOCTYPE html >
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+  <title>关于作用域的demo
+  </title>
+</head>
+
+<body>
+  <div  ng-controller="myCtrl">
+    <p> 当前页面的url:</p>
+    <h3>{{myUrl}}</h3>
+    <p>当前的页面hexaf:</p>
+    <h3>{{hexayf}}</h3>
+    <div>
+      <h2>root:</h2>
+      <h3>value: {{value}} </h3>
+    </div>
+    <div>
+      <h2>conflex VAlue now and the root</h2>
+      <h3>value: {{conflexValue}}</h3>
+    </div>
+  </div>
+
+  <!-- <p>该实例使用了内建的 $location 服务获取当前页面的 URL。</p> -->
+
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.service('hexayf',function(){
+      this.myFunc= function(x){
+       return x.toString(2) 
+
+      }
+    })
+
+    app.controller('myCtrl', function ($scope,$rootScope, $location,hexayf) {
+      $scope.myUrl = $location.absUrl();
+      $rootScope.value="rootScopeSepecialValue";
+      $rootScope.conflexValue="conflexValueOfRoot"
+      // $scope.conflexValue="conflexValueOfsocp"
+      $scope.hexayf= hexayf.myFunc(6161);
+    });
+        
+  </script>
+
+</body>
+
+</html>
