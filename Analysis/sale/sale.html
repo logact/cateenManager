@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 <head>
     <meta charset="utf-8">
     <title>销售数据分析</title>
+    
     <!-- 引入 echarts.js -->
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
     <script src="https://cdn.staticfile.org/angular.js/1.7.0/angular.min.js"></script>
+  
 </head>
-<body>
-    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="today" style="width: 600px;height:400px;"></div>
+<body style="height: 100%;">
+    <!-- 今天的销售情况 -->
+    <div id="today" style="width: 50%;height:50%;"></div>
+    <!-- 销售额总览,每个分类的菜的销售额随着月份的变化产生的不同-->
+    <div id="sum" style="width: 50%;height:50%;"></div>
+    <!-- 每个菜的销售额每天的变化 -->
+    <div id="food" style="width: 50%;height:50%;"></div>
+    <div id="" style="width: 50%;height:50%;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('today')); 
